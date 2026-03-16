@@ -16,8 +16,8 @@ public class Main {
 
      static void heapify(String[] A, int i) {
 
-        int left = 2*i + 1;
-        int right = 2*i + 2;
+        int left = 2*i ;
+        int right = 2*i + 1;
         int largest = i;
 
         if (left < heapSize && A[left].compareTo(A[largest]) > 0)
@@ -75,11 +75,37 @@ public class Main {
             heapify(A,0);
         }
     }
-    //printing the array
-    static void printArray(String[] A) {
-        for (String s : A)
-            System.out.print(s + " ");
+    public static void main(String[] args) {
+
+        String[] words = {"pear","apple","orange","banana", "grape","kiwi","lemon","mango"};
+        heapSort(words);
+
+        for(String w : words){System.out.print(w + " ");}
+
+        String[] bottomTest = words.clone();
+        String[] topTest = words.clone();
+
+        // bottom-up timing
+        long start1 = System.nanoTime();
+        heapSort(bottomTest);
+        long end1 = System.nanoTime();
+
+        // top-down timing
+        long start2 = System.nanoTime();
+        heapSortTopDown(topTest);
+        long end2 = System.nanoTime();
+
         System.out.println();
+        // results
+        System.out.println("Sorted (Bottom-Up):");
+        printArray(bottomTest);
+
+        System.out.println("\nSorted (Top-Down):");
+        printArray(topTest);
+
+        System.out.println("\nTiming Results");
+        System.out.println("Bottom-Up Time: " + (end1-start1) + " ns");
+        System.out.println("Top-Down Time: " + (end2-start2) + " ns");
     }
 
 }
