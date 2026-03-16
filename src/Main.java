@@ -3,6 +3,7 @@
 //16 March 2026
 //Practical16
 
+import java.util.*;
 
 void main() {
 
