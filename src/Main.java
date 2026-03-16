@@ -108,4 +108,7 @@ public class Main {
         System.out.println("Top-Down Time: " + (end2-start2) + " ns");
     }
 
-}
+    private static void printArray(String[] a) {
+        for(String w : a){System.out.print(w + " ");}
+        }
+    }
